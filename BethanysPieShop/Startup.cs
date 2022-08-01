@@ -1,3 +1,5 @@
+using BethanysPieShop.Models.Interfaces;
+using BethanysPieShop.Models.Mock;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +19,8 @@ namespace BethanysPieShop
         public void ConfigureServices(IServiceCollection services)
         {
             //-- servizi gestiti dall'applicazione
+            services.AddScoped<IPieRepository, MockPieRepo>();
+            services.AddScoped<ICategoryRepository, MockCategoryRepo>();
             services.AddControllersWithViews();
         }
 
