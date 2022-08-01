@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BethanysPieShop.Models.Entities;
+using System.Collections.Generic;
 
 namespace BethanysPieShop.Models.Interfaces
 {

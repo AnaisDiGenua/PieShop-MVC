@@ -1,4 +1,5 @@
-﻿using BethanysPieShop.Models.Interfaces;
+﻿using BethanysPieShop.Models.Entities;
+using BethanysPieShop.Models.Interfaces;
 using System.Collections.Generic;
 
 namespace BethanysPieShop.Models.Mock

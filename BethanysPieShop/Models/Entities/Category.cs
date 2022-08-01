@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BethanysPieShop.Models
+namespace BethanysPieShop.Models.Entities
 {
     public class Category
     {
