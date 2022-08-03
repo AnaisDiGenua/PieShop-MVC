@@ -2,14 +2,14 @@
 
 
 <h1>@Model.CurrentCategory</h1>
-<div class="d-flex flex-wrap justify-content-between">
+<div class="d-flex flex-wrap">
     @foreach (var pie in Model.Pies)
     {
-    <div class="card mb-3">
+    <div class="card card-pie mb-3">
         <img src="@pie.ImageThumbnailUrl" alt="">
         <div class="box-details">
             <span class="badge rounded-pill text-bg-warning text-end">@pie.Price.ToString("c")</span>
-            <h3><a>@pie.Name</a></h3>
+            <h3 class="mt-3"><a>@pie.Name</a></h3>
             <p>@pie.ShortDescription</p>
         </div>
     </div>

@@ -1,4 +1,5 @@
 using BethanysPieShop.Models;
+using BethanysPieShop.Models.EF;
 using BethanysPieShop.Models.Interfaces;
 using BethanysPieShop.Models.Mock;
 using Microsoft.AspNetCore.Builder;
@@ -29,8 +30,8 @@ namespace BethanysPieShop
         public void ConfigureServices(IServiceCollection services)
         {
             //-- servizi gestiti dall'applicazione
-            services.AddScoped<IPieRepository, MockPieRepo>();
-            services.AddScoped<ICategoryRepository, MockCategoryRepo>();
+            services.AddScoped<IPieRepository, EFPieRepo>();
+            services.AddScoped<ICategoryRepository, EFCategoryRepo>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }

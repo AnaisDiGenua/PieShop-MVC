@@ -16,7 +16,7 @@ namespace BethanysPieShop.Models.EF
             this.context = context;
         }
 
-
+        //proprietà
         public IEnumerable<Pie> AllPies
         {
             get { return context.Pies.Include(p => p.Category); }
@@ -27,6 +27,7 @@ namespace BethanysPieShop.Models.EF
             get { return context.Pies.Include(p => p.Category).Where(p => p.IsPieOfTheWeek); }
         }
 
+        //metodo
         public Pie GetPieById(int pieId)
         {
             return context.Pies.FirstOrDefault(p => p.PieId == pieId);

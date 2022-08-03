@@ -12,6 +12,10 @@
 
 
 /*LIST PIES*/
+.card-pie {
+    width: calc(100% / 3 - 40px);
+    margin: 20px;
+}
 .box-details {
     position: relative;
     padding: 15px 0 0 10px;
