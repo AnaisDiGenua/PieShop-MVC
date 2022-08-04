@@ -1,11 +1,11 @@
 ﻿@model Pie
 
 
-<div class="card card-pie mb-3">
+<div class="card">
     <img src="@Model.ImageThumbnailUrl" alt="">
     <div class="box-details">
         <span class="badge rounded-pill text-bg-warning text-end">@Model.Price.ToString("c")</span>
-        <h3 class="mt-3"><a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">@Model.Name</a></h3>
+        <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId" class="name-pie">@Model.Name</a>
         <p>@Model.ShortDescription</p>
     </div>
 </div>
