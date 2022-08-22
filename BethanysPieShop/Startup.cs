@@ -1,5 +1,6 @@
 using BethanysPieShop.Models;
 using BethanysPieShop.Models.EF;
+using BethanysPieShop.Models.Entities;
 using BethanysPieShop.Models.Interfaces;
 using BethanysPieShop.Models.Mock;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,9 @@ namespace BethanysPieShop
             //-- servizi gestiti dall'applicazione
             services.AddScoped<IPieRepository, EFPieRepo>();
             services.AddScoped<ICategoryRepository, EFCategoryRepo>();
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddHttpContextAccessor();
+            services.AddSession();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }
@@ -50,6 +54,7 @@ namespace BethanysPieShop
             app.UseStatusCodePages();
             //per gestire file statici(immagini, file css, js)
             app.UseStaticFiles();
+            app.UseSession();
 
             //useRouting e useEndPoints permettono a mvc di rispondere alle richieste http
             app.UseRouting();
