@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/Style.css" asp-append-version="true" />
+    <link rel = "stylesheet" href = "~/lib/font-awesome/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet"> 
@@ -21,19 +22,13 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="Pie" asp-action="List" class="nav-link">Pies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
+                    @await Component.InvokeAsync("CategoryMenu")
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                  
                 </ul>
             </div>
         </div>
