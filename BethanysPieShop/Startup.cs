@@ -6,6 +6,7 @@ using BethanysPieShop.Models.Mock;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,10 +36,15 @@ namespace BethanysPieShop
             services.AddScoped<ICategoryRepository, EFCategoryRepo>();
             services.AddScoped <IOrderRepository, EFOrderRepo>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+
             services.AddHttpContextAccessor();
             services.AddSession();
+
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,12 +65,14 @@ namespace BethanysPieShop
 
             //useRouting e useEndPoints permettono a mvc di rispondere alle richieste http
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
