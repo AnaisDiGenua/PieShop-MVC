@@ -33,6 +33,7 @@ namespace BethanysPieShop
             //-- servizi gestiti dall'applicazione
             services.AddScoped<IPieRepository, EFPieRepo>();
             services.AddScoped<ICategoryRepository, EFCategoryRepo>();
+            services.AddScoped <IOrderRepository, EFOrderRepo>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
             services.AddHttpContextAccessor();
             services.AddSession();
