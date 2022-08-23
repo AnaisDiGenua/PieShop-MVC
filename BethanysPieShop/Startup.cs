@@ -66,6 +66,7 @@ namespace BethanysPieShop
             //useRouting e useEndPoints permettono a mvc di rispondere alle richieste http
             app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
