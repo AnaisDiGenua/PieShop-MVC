@@ -70,8 +70,6 @@ h1 {
 }
 
 
-
-
 /*SHOPPING CART*/
 .addToCart {
     padding-right: 10px;
@@ -80,4 +78,10 @@ h1 {
 .addToCart .btn {
     background-color: #a593c2 !important;
     border-color: #a593c2 !important;
+}
+
+
+/*FOOTER*/
+footer {
+    height: 60px;
 }
